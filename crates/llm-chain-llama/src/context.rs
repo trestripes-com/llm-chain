@@ -56,7 +56,7 @@ impl From<ContextParams> for llama_context_params {
     fn from(params: ContextParams) -> Self {
         llama_context_params {
             n_ctx: params.n_ctx,
-            n_parts: params.n_parts,
+            n_gpu_layers: 1,
             seed: params.seed,
             f16_kv: params.f16_kv,
             logits_all: false,
@@ -74,7 +74,7 @@ impl From<llama_context_params> for ContextParams {
     fn from(params: llama_context_params) -> Self {
         ContextParams {
             n_ctx: params.n_ctx,
-            n_parts: params.n_parts,
+            n_parts: 1,
             seed: params.seed,
             f16_kv: params.f16_kv,
             vocab_only: params.vocab_only,
